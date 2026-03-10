@@ -1,0 +1,23 @@
+{
+  "name": "fit5120-tp12-frontend",
+  "version": "1.0.0",
+  "description": "FIT5120 TP12 Onboarding Frontend - Sun Safety App",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chart.js": "^4.4.3",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29",
+    "vue-chartjs": "^5.3.1",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1"
+  }
+}
