@@ -13,14 +13,17 @@ const api = axios.create({
 })
 
 // Response interceptor — redirect to login on 401
+// NOTE: /api/auth/me is excluded so checkSession() can fail silently on first load
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      // Avoid redirect loop on the login page itself
-      if (window.location.pathname !== '/') {
-        window.location.href = '/'
-      }
+    const url = error.config?.url || ''
+    const is401 = error.response?.status === 401
+    const isCheckSession = url.includes('/auth/me')
+    const onLoginPage = window.location.pathname === '/'
+
+    if (is401 && !isCheckSession && !onLoginPage) {
+      window.location.href = '/'
     }
     return Promise.reject(error)
   }

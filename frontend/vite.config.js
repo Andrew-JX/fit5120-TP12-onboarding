@@ -11,15 +11,17 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    // Proxy API calls to backend in development
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
         changeOrigin: true,
+        secure: false,
+        cookieDomainRewrite: 'localhost',
       },
       '/uploads': {
         target: 'http://localhost:3000',
         changeOrigin: true,
+        secure: false,
       },
     },
   },
