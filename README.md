@@ -146,36 +146,6 @@ git push origin feature/your-page
 ## Deployment
 https://fit5120-tp-12-onboarding-i7v5.vercel.app/
 
-### Frontend → Vercel
-
-1. Go to [vercel.com](https://vercel.com) → New Project → import this repo
-2. Set Root Directory to `frontend`
-3. Framework: Vite, Build Command: `npm run build`, Output: `dist`
-4. Add environment variable: `VITE_API_URL=https://your-backend.onrender.com`
-
-### Backend → Render
-
-1. New Web Service → connect this repo
-2. Root Directory: `backend`, Build: `npm install`, Start: `npm start`
-3. Add all variables from `backend/.env.example`
-
-### Database → Render PostgreSQL
-
-1. New PostgreSQL → copy the External Database URL into backend `DATABASE_URL`
-2. Run `npm run db:init && npm run db:seed` once to set up tables and seed data
-
----
-
-## Open data sources
-
-| Dataset | Format | How it's used | Licence |
-|---------|--------|---------------|---------|
-| OpenWeatherMap UV One Call API | REST API | Real-time UV index on Dashboard | CC BY-SA 4.0 |
-| AU Location Dataset (GitHub gist/randomecho) | CSV (static) | City → lat/lon lookup for UV API | GNU GPL v3 |
-| ABS Sun Protection Behaviours Nov 2023–Feb 2024 | Excel (annual) | Behaviour charts on Learn page | CC BY 3.0 AU |
-| AIHW Skin Cancer Incidence 1982–2017 | Excel (annual) | Cancer incidence charts on Dashboard/Learn | CC BY 3.0 AU |
-
----
 
 ## Links
 
