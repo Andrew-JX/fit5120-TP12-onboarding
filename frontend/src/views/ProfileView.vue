@@ -6,10 +6,10 @@
       <p class="sub">View your account info and skin diary history.</p>
     </div>
     <div class="card placeholder-card fade-in">
-      <h3>👤 Profile & Diary History</h3>
+      <h3>Profile & Diary History</h3>
       <p>Implementation by Minyu Ji — see <code>GET /api/diary?bodyPart=&sortBy=</code></p>
       <br />
-      <p>⚠️ Render notes with <code>v-text</code>, NOT <code>v-html</code> — stored XSS prevention</p>
+      <p>Render notes with <code>v-text</code>, NOT <code>v-html</code> — stored XSS prevention</p>
     </div>
   </div>
 </template>

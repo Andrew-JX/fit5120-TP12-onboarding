@@ -7,19 +7,19 @@
 
     <div class="placeholder-grid">
       <div class="card placeholder-card fade-in">
-        <h3>☀️ Current UV Index</h3>
+        <h3>Current UV Index</h3>
         <p>Implement: call <code>uvStore.fetchCurrentUv()</code>, render <code>&lt;UvBadge&gt;</code></p>
       </div>
       <div class="card placeholder-card fade-in" style="animation-delay:0.1s">
-        <h3>🛡️ Protection Advice</h3>
+        <h3>Protection Advice</h3>
         <p>Implement: display <code>uvStore.currentUv.advice</code> (clothing, SPF, activity)</p>
       </div>
       <div class="card placeholder-card fade-in" style="animation-delay:0.2s">
-        <h3>📊 UV Trend (7 days)</h3>
+        <h3>UV Trend (7 days)</h3>
         <p>Implement: <code>vue-chartjs</code> LineChart using <code>uvStore.uvHistory</code></p>
       </div>
       <div class="card placeholder-card fade-in" style="animation-delay:0.3s">
-        <h3>📈 Cancer Incidence (AIHW)</h3>
+        <h3>Cancer Incidence (AIHW)</h3>
         <p>Implement: <code>vue-chartjs</code> BarChart using <code>/api/learn/stats</code></p>
       </div>
     </div>

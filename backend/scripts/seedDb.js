@@ -12,9 +12,9 @@ async function seedDb() {
 
   // ── Demo users (bcrypt hashed passwords) ────────────────────────────────
   const users = [
-    { username: 'demo',  password: 'demo123',  displayName: 'Demo User' },
-    { username: 'admin', password: 'admin123', displayName: 'Admin User' },
-    { username: 'chloe', password: 'chloe123', displayName: 'Chloe (Persona)' },
+    { username: 'demo',  password: 'GGBond123!',  displayName: 'Demo User' },
+    { username: 'admin', password: 'Admin123!', displayName: 'Admin User' },
+    { username: 'chloe', password: 'Chloe123!', displayName: 'Chloe (Persona)' },
   ];
 
   for (const u of users) {

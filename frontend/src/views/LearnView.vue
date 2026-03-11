@@ -6,7 +6,7 @@
       <p class="sub">Understand UV risks, skin types, and how to stay sun-safe.</p>
     </div>
     <div class="card placeholder-card fade-in">
-      <h3>📰 Articles & Resources</h3>
+      <h3>Articles & Resources</h3>
       <p>Implementation by [teammate] — fetch from <code>GET /api/learn/articles</code></p>
     </div>
   </div>
