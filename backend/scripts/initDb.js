@@ -6,7 +6,7 @@ require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const pool = require('../src/db/pool');
 
 async function initDb() {
-  console.log('🔧  Initialising database...');
+  console.log('Initialising database...');
 
   const sql = `
     -- ── Users ─────────────────────────────────────────────────────────────
@@ -81,9 +81,9 @@ async function initDb() {
 
   try {
     await pool.query(sql);
-    console.log('✅  All tables created (or already exist).');
+    console.log('All tables created (or already exist).');
   } catch (err) {
-    console.error('❌  Database init failed:', err.message);
+    console.error('Database init failed:', err.message);
     process.exit(1);
   } finally {
     await pool.end();
