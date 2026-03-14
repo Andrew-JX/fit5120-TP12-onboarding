@@ -92,22 +92,21 @@ function getUvAdvice(uvIndex) {
   }
 }
 
-// ── Helper: fetch UV from OpenWeatherMap ───────────────────────────────────
+// ── Helper: fetch UV from Open-Meteo  ──
 function fetchUvFromApi(lat, lon) {
   return new Promise((resolve, reject) => {
-    const apiKey = process.env.OPENWEATHER_API_KEY;
-    if (!apiKey || apiKey === 'your_openweathermap_api_key_here') {
-      // Return mock data when no API key is configured (dev/demo mode)
-      return resolve({ uv: 6.5, source: 'mock' });
-    }
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${apiKey}`;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=uv_index`;
+    
     https.get(url, (res) => {
       let data = '';
       res.on('data', (chunk) => (data += chunk));
       res.on('end', () => {
         try {
           const json = JSON.parse(data);
-          resolve({ uv: json.current?.uvi ?? 0, source: 'api' });
+
+          const currentUv = json.current?.uv_index ?? 0;
+          resolve({ uv: currentUv, source: 'open-meteo' });
         } catch {
           reject(new Error('Failed to parse UV API response'));
         }
