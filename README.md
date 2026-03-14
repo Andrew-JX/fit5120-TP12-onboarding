@@ -170,68 +170,46 @@ https://fit5120-tp-12-onboarding-i7v5.vercel.app/
 
 ## Technology Stack Selection
 
+## Tech Stack
+
 ### Frontend
 
-| Technology | Version | Purpose |
-
-| ---------- | ---- | ------------------------------------------------- |
-
-| Vue 3 | 3.x | UI framework, using Composition API (`<script setup>`) |
-
-| Vite | 5.x | Development server + packaging tool, supports hot reloading |
-
-| Pinia | 2.x | Global state management, replacement for Vuex |
-
-| Vue Router | 4.x | Frontend routing, SPA navigation |
-
-| Axios | 1.x | HTTP request library, encapsulated in `api.js` |
+| Technology  | Version | Purpose                                                |
+|-------------|---------|--------------------------------------------------------|
+| Vue 3       | 3.x     | UI framework using Composition API (`<script setup>`) |
+| Vite        | 5.x     | Development server and build tool with hot reload     |
+| Pinia       | 2.x     | Global state management, replacing Vuex               |
+| Vue Router  | 4.x     | Frontend routing and SPA navigation                   |
+| Axios       | 1.x     | HTTP request library, encapsulated in `api.js`        |
 
 ### Backend
 
-| Technology | Version | Purpose |
+| Technology           | Version | Purpose                                                  |
+|----------------------|---------|----------------------------------------------------------|
+| Node.js              | 18+     | Runtime environment                                      |
+| Express              | 4.x     | Web framework for handling HTTP requests                 |
+| pg (node-postgres)   | 8.x     | PostgreSQL client for database connection                |
+| bcryptjs             | 2.x     | Password hashing to avoid plaintext password storage     |
+| express-session      | 1.x     | Session management for storing login state               |
+| multer               | 1.x     | Handling `multipart/form-data` for image uploads         |
+| helmet               | 7.x     | Automatically setting secure HTTP response headers       |
+| cors                 | 2.x     | Cross-Origin Resource Sharing configuration              |
+| express-rate-limit   | 7.x     | Rate limiting to reduce brute-force attacks              |
+| sanitize-html        | 2.x     | Sanitising user input to prevent XSS                     |
+| dotenv               | 16.x    | Loading environment variables from `.env` files         |
+| nodemon              | 3.x     | Automatically restarting the server during development   |
 
-| ------------------ | ---- | ------------------------------------ |
+### Database
 
-| Node.js | 18+ | Runtime |
-
-| Express | 4.x | Web framework, handles HTTP requests |
-
-| pg (node-postgres) | 8.x | PostgreSQL client, connects to databases | | bcryptjs | 2.x | Password hashing to prevent plaintext storage |
-
-| express-session | 1.x | Session management, storing login state |
-
-| multer | 1.x | Handling multipart/form-data (image uploads) |
-
-| helmet | 7.x | Automatically setting secure HTTP response headers |
-
-| cors | 2.x | Cross-Origin Resource Sharing configuration |
-
-| express-rate-limit | 7.x | Rate limiting, preventing brute-force attacks |
-
-| sanitize-html | 2.x | Cleaning HTML/JS from user input (XSS protection) |
-
-| dotenv | 16.x | Loading environment variables from .env files |
-
-| nodemon | 3.x | Automatically restarting the server during development |
-
-### Databases
-
-| Technology | Purpose |
-
-| ----------------- | ------------------------------------- |
-
-| PostgreSQL 16 | Relational database, storing user, log, and UV data |
-
-| Render PostgreSQL | Free cloud-based database instance (accessible from the public internet) |
+| Technology         | Purpose                                                              |
+|--------------------|----------------------------------------------------------------------|
+| PostgreSQL 16      | Relational database for storing users, diary records, and UV data    |
+| Render PostgreSQL  | Free cloud-hosted PostgreSQL instance accessible from the internet   |
 
 ### Deployment
 
-| Service | Purpose |
-
-| ------------------ | -------------------------------- |
-
-| Vercel | Front-end static hosting, automatically detects Vite projects |
-
-| Render Web Service | Back-end Node.js service hosting |
-
-| Render PostgreSQL | Database hosting (free, 90-day validity) |
+| Service              | Purpose                                           |
+|----------------------|---------------------------------------------------|
+| Vercel               | Frontend static hosting with automatic Vite build |
+| Render Web Service   | Backend Node.js service hosting                   |
+| Render PostgreSQL    | Database hosting on Render free tier              |
