@@ -7,13 +7,27 @@
     </div>
     <div class="card placeholder-card fade-in">
       <h3>Articles & Resources</h3>
-      <p>Implementation by [teammate] — fetch from <code>GET /api/learn/articles</code></p>
+      <ul>
+        <li v-for="article in articles" :key="article.url">
+          <a :href="article.url" target="_blank">{{ article.title }}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
 // TODO: Teammate — implement article list and charts
+const articles = [
+  {
+    title: "How does the sun affect different skin types?",
+    url: "https://sundoctors.com.au/blog/how-does-the-sun-affect-different-skin-types/"
+  },
+  {
+    title: "Sun Exposure - ARPANSA",
+    url: "https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/sun-exposure"
+  }
+]
 </script>
 
 <style scoped>
