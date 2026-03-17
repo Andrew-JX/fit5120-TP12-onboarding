@@ -203,18 +203,30 @@ router.get('/', async (req, res) => {
     const limit  = Math.min(50, Math.max(1, parseInt(req.query.limit) || 10));
     const offset = (page - 1) * limit;
 
-    const rawPart      = sanitizeText(req.query.bodyPart || '').toLowerCase();
-    const bodyPartFilter = ALLOWED_BODY_PARTS.includes(rawPart) ? rawPart : null;
-    const sortBy       = req.query.sortBy === 'date_asc' ? 'ASC' : 'DESC';
+    const rawPart        = sanitizeText(req.query.bodyPart || '').toLowerCase();
+const bodyPartFilter = ALLOWED_BODY_PARTS.includes(rawPart) ? rawPart : null;
+const sortBy         = req.query.sortBy === 'date_asc' ? 'ASC' : 'DESC';
 
-    const params = [req.session.userId];
-    let where = 'WHERE user_id = $1';
+// Date range filter — used by AC3 Timeline Comparison in DiaryView
+const dateFrom  = req.query.dateFrom || null;
+const dateTo    = req.query.dateTo   || null;
+const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
-    if (bodyPartFilter) {
-      params.push(bodyPartFilter);
-      where += ` AND body_part = $${params.length}`;
-    }
+const params = [req.session.userId];
+let where = 'WHERE user_id = $1';
 
+if (bodyPartFilter) {
+  params.push(bodyPartFilter);
+  where += ` AND body_part = $${params.length}`;
+}
+if (dateFrom && dateRegex.test(dateFrom)) {
+  params.push(dateFrom);
+  where += ` AND entry_date >= $${params.length}`;
+}
+if (dateTo && dateRegex.test(dateTo)) {
+  params.push(dateTo);
+  where += ` AND entry_date <= $${params.length}`;
+}
     const countResult = await pool.query(
       `SELECT COUNT(*) FROM diary_entries ${where}`,
       params
