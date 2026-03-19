@@ -37,7 +37,7 @@
     <div class="myths-card fade-in">
       <div class="myths-left">
         <div class="myths-title-box">
-          <h3>Sunscreen Myths & Misconceptions</h3>
+          <h3>☀️ Sunscreen Myths & Misconceptions</h3>
         </div>
         <ul class="myths-list">
           <li v-for="(myth, index) in myths" :key="index" @click="openMyth(index)">
@@ -62,7 +62,7 @@
     <!-- Skin Type Quiz -->
     <div class="skin-quiz-card fade-in">
       <div class="skin-quiz-title-box">
-        <h3>What's Your Skin Type?</h3>
+        <h3>☀️ What's Your Skin Type?</h3>
       </div>
       <p class="skin-quiz-intro">
         Answer the questions below to find out your skin type. Each option carries a score (shown by the number before it) — your total score determines your skin type.
